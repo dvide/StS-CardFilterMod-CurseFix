@@ -1,0 +1,17 @@
+{
+  "modid": "${mod.id}",
+  "name": "${project.name}",
+  "author_list": [
+    "${mod.author}"
+  ],
+  "credits": "${mod.credits}",
+  "description": "${project.description}",
+  "version": "${project.version}",
+  "dependencies": [
+    "basemod",
+    "CardFilterMod"
+  ],
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "update_json": "https://api.github.com/repos/dvide/StS-CardFilterMod-CurseFix/releases/latest"
+}

@@ -1,0 +1,163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dvide.cardFilterCurseFix</groupId>
+    <artifactId>cardFilterCurseFix</artifactId>
+
+    <name>Card Filter Mod: Curse Fix</name>
+    <description>Fixes crash in Card Filter Mod when curses are filtered and random curses are generated.</description>
+    <version>1.0.0</version>
+
+    <properties>
+        <mod.id>CardFilterMod-CurseFix</mod.id>
+        <mod.author>dvide</mod.author>
+        <mod.credits>mrdelish</mod.credits>
+
+        <steam.windows>C:/Program Files (x86)/Steam/steamapps</steam.windows>
+        <steam.mac>${user.home}/Library/Application Support/Steam/steamapps</steam.mac>
+
+        <SlayTheSpire.version>12-18-2022</SlayTheSpire.version>
+        <ModTheSpire.version>3.30.3</ModTheSpire.version>
+        <BaseMod.version>5.55.1</BaseMod.version>
+        <CardFilterMod.version>0.1</CardFilterMod.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>desktop</artifactId>
+            <version>${SlayTheSpire.version}</version>
+            <scope>system</scope>
+            <systemPath>${steam.path}/${sts.path}/desktop-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>ModTheSpire</artifactId>
+            <version>${ModTheSpire.version}</version>
+            <scope>system</scope>
+            <systemPath>${steam.path}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>basemod</groupId>
+            <artifactId>BaseMod</artifactId>
+            <version>${BaseMod.version}</version>
+            <scope>system</scope>
+            <systemPath>${steam.path}/workshop/content/646570/1605833019/BaseMod.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cardFilter</groupId>
+            <artifactId>cardFilter</artifactId>
+            <version>${CardFilterMod.version}</version>
+            <scope>system</scope>
+            <systemPath>${steam.path}/workshop/content/646570/1645339812/cardFilter.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>ModTheSpire.json</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>resources.dvide.cardFilterCurseFix/images/**</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                    <release>8</release>
+                    <compilerArgument>-Xlint:-options</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <escapeWindowsPaths>false</escapeWindowsPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/${project.artifactId}.jar" tofile="${steam.path}/${sts.path}/mods/${project.artifactId}.jar" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <steam.path>${steam.windows}</steam.path>
+                <sts.path>common/SlayTheSpire</sts.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>mac</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <steam.path>${steam.mac}</steam.path>
+                <sts.path>common/SlayTheSpire/SlayTheSpire.app/Contents/Resources</sts.path>
+            </properties>
+        </profile>
+    </profiles>
+</project>
