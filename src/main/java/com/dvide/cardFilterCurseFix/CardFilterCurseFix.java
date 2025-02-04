@@ -8,9 +8,11 @@ import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
+import java.util.Objects;
+
 @SpireInitializer
+@SuppressWarnings("unused")
 public class CardFilterCurseFix implements PostInitializeSubscriber {
-    @SuppressWarnings("unused")
     public static void initialize() {
         new CardFilterCurseFix();
     }
@@ -30,7 +32,7 @@ public class CardFilterCurseFix implements PostInitializeSubscriber {
         final String ourModID = "CardFilterMod-CurseFix";
 
         for (ModInfo modInfo : Loader.MODINFOS) {
-            if (modInfo.getIDName().equals(ourModID)) {
+            if (Objects.equals(modInfo.getIDName(), ourModID)) {
                 return modInfo;
             }
         }
