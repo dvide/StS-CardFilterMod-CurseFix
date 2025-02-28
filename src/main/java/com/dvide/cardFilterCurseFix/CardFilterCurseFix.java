@@ -32,7 +32,7 @@ public class CardFilterCurseFix implements PostInitializeSubscriber {
         final String ourModID = "CardFilterMod-CurseFix";
 
         for (ModInfo modInfo : Loader.MODINFOS) {
-            if (Objects.equals(modInfo.getIDName(), ourModID)) {
+            if (Objects.equals(modInfo.ID, ourModID)) {
                 return modInfo;
             }
         }
