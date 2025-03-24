@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 @SuppressWarnings("unused")
 public class FixRemoveCurseCrash {
-    @SpirePatch2(clz = CardFilterMod.class, method = "removeCardFromPool", requiredModId = "CardFilterMod")
+    @SpirePatch2(clz = CardFilterMod.class, method = "removeCardFromPool")
     public static class CardFilterMod_removeCardFromPool_Patches {
         @SpireInsertPatch(locator = AbstractDungeon_curseCardPool_Locator.class)
         public static void removeFromCardLibraryCursesByRarity(final String cardName) {
