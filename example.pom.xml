@@ -20,6 +20,7 @@
         <ModTheSpire.version>3.30.3</ModTheSpire.version>
         <BaseMod.version>5.55.3</BaseMod.version>
         <CardFilterMod.version>0.1</CardFilterMod.version>
+        <Koakuma.version>0.0.9</Koakuma.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -52,6 +53,13 @@
             <version>${CardFilterMod.version}</version>
             <scope>system</scope>
             <systemPath>${steam.path}/workshop/content/646570/1645339812/cardFilter.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cardFilter</groupId>
+            <artifactId>Koakuma</artifactId>
+            <version>${Koakuma.version}</version>
+            <scope>system</scope>
+            <systemPath>${steam.path}/workshop/content/646570/3224930057/Koakuma.jar</systemPath>
         </dependency>
     </dependencies>
 
