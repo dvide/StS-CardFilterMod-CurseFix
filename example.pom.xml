@@ -6,7 +6,7 @@
 
     <name>Card Filter Mod: Curse Fix</name>
     <description>Fixes crash in Card Filter Mod when curses are filtered and random curses are generated.</description>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <properties>
         <mod.id>CardFilterMod-CurseFix</mod.id>
