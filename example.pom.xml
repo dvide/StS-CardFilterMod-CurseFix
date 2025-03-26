@@ -55,7 +55,7 @@
             <systemPath>${steam.path}/workshop/content/646570/1645339812/cardFilter.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>cardFilter</groupId>
+            <groupId>KOAmod</groupId>
             <artifactId>Koakuma</artifactId>
             <version>${Koakuma.version}</version>
             <scope>system</scope>
