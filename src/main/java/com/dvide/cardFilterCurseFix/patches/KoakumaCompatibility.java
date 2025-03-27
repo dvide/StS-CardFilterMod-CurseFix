@@ -50,7 +50,7 @@ public class KoakumaCompatibility {
         }
 
         private static Boolean shouldPurgeKOABook(final String cardID) {
-            assert(KOABooksToPurge != null);
+            assert KOABooksToPurge != null;
             return KOABooksToPurge.getOrDefault(cardID, Boolean.FALSE);
         }
     }
@@ -59,7 +59,7 @@ public class KoakumaCompatibility {
     public static class CardFilterMod_removeCardFromPool_Patches {
         @SpirePrefixPatch
         public static void flagKOABookForPurging(final String cardName) {
-            assert(KOABooksToPurge != null);
+            assert KOABooksToPurge != null;
 
             if (KOABooksToPurge.containsKey(cardName)) {
                 KOABooksToPurge.put(cardName, Boolean.TRUE);
