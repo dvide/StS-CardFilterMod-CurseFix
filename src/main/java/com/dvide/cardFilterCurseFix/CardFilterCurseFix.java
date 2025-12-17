@@ -37,6 +37,6 @@ public class CardFilterCurseFix implements PostInitializeSubscriber {
             }
         }
 
-        throw new RuntimeException("Failed to load ModInfo for ''" + ourModID + "'.");
+        throw new RuntimeException("Failed to load ModInfo for '" + ourModID + "'.");
     }
 }
