@@ -1,0 +1,8 @@
+{
+  "steamPublishedID": "3417656017",
+  "title": "Card Filter: Curse Fix",
+  "description": "Fixes crash in [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1645339812]Card Filter[/url] (by [url=https://steamcommunity.com/id/mrdelish/myworkshopfiles/?appid=646570]mrdelish[/url]) when curses are filtered and random curses are generated.\n\nThis mod should be loaded alongside Card Filter. It can be loaded in any order.\n\nGitHub: https://github.com/dvide/StS-CardFilterMod-CurseFix",
+  "visibility": "public",
+  "changeNote": "",
+  "tags": []
+}
